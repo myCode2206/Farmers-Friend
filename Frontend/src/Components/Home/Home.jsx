@@ -1,6 +1,5 @@
 import Hero from "../Hero/Hero";
 import Features from "../Features/Features";
-import Footer from "../Footer/Footer";
 import FormPage from "../CONTACTUS/FormPage";
 
 let heroSection = {
@@ -23,10 +22,7 @@ const Home = () => {
         <Features />
       </div>
       <div>
-        <FormPage/>
-      </div>
-      <div>
-        <Footer />
+        <FormPage />
       </div>
     </>
   );

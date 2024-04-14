@@ -1,4 +1,11 @@
+import { useNavigate } from "react-router-dom";
+
 const Navbarr = () => {
+  const navigate = useNavigate();
+  function clickListener() {
+    navigate("/login");
+  }
+
   return (
     <nav className="navbar navbar-expand-lg bg-transparent">
       <div className="container-fluid">
@@ -20,7 +27,7 @@ const Navbarr = () => {
           <div className="mx-auto d-flex justify-content-center">
             <ul className="navbar-nav mb-2 mb-lg-0">
               <li className="nav-item">
-                <a className="nav-link active" aria-current="page" href="#">
+                <a className="nav-link active" aria-current="page" href="/">
                   Home
                 </a>
               </li>
@@ -31,15 +38,11 @@ const Navbarr = () => {
               </li>
             </ul>
           </div>
-          <form
-            className="d-flex justify-content-center"
-            role="search"
-            action="#"
-          >
-            <button className="btn btn-outline-success" type="submit">
+          <div className="d-flex justify-content-center">
+            <button onClick={clickListener} className="btn btn-outline-success">
               Sign In
             </button>
-          </form>
+          </div>
         </div>
       </div>
     </nav>
