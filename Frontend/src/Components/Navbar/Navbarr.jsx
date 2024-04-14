@@ -1,5 +1,3 @@
-import React from "react";
-
 const Navbarr = () => {
   return (
     <nav className="navbar navbar-expand-lg bg-transparent">
