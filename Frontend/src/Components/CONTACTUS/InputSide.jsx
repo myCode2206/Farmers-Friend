@@ -1,9 +1,9 @@
 //InputSide.js
-import styled from 'styled-components';
+import styled from "styled-components";
 
 const InputSideWrapper = styled.form`
   height: auto;
-  width:100%;
+  width: 100%;
   padding-bottom: 100px;
   position: relative;
   padding: 10px 10px 100px 10px;
@@ -79,4 +79,3 @@ const InputSide = () => {
 };
 
 export default InputSide;
-

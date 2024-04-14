@@ -1,6 +1,8 @@
-import styled from 'styled-components';
-import DetailsBar from './DetailsBar';
-import InputSide from './InputSide';
+import React, { useRef, useState } from "react";
+import styled from "styled-components";
+import emailjs from "@emailjs/browser";
+import DetailsBar from "./DetailsBar";
+import InputSide from "./InputSide";
 
 const PageWrapper = styled.div`
   display: flex;
@@ -17,7 +19,7 @@ const PageHeadingWrapper = styled.div`
   margin-top: 40px;
 `;
 
-const FormContainer = styled.div`
+const FormContainer = styled.form`
   width: 70%;
   display: flex;
   flex-direction: row;
@@ -26,20 +28,20 @@ const FormContainer = styled.div`
   border-radius: 5px;
   height: 70vh;
 
-  @media only screen and (max-width:850px){
+  @media only screen and (max-width: 850px) {
     width: 90%;
-    flex-direction: column; 
-    height: auto; 
+    flex-direction: column;
+    height: auto;
   }
-  @media only screen and (min-width:850px){
+  @media only screen and (min-width: 850px) {
     width: 90%;
-    flex-direction: row; 
-    height: auto; 
+    flex-direction: row;
+    height: auto;
   }
-  @media only screen and (min-width:1000px){
+  @media only screen and (min-width: 1000px) {
     width: 90%;
-    flex-direction: row; 
-    height: auto; 
+    flex-direction: row;
+    height: auto;
   }
 `;
 
@@ -56,13 +58,38 @@ const TextTwo = styled.p`
 `;
 
 const FormPage = () => {
+  const formRef = useRef(null);
+  const [message, setMessage] = useState("");
+
+  const sendEmail = async (e) => {
+    e.preventDefault();
+
+    try {
+      await emailjs.sendForm(
+        "service_bkg56qj",
+        "template_preg9u4",
+        formRef.current,
+        "4TiwfDly9BiZRP5N_"
+      );
+      console.log("Email sent successfully!");
+      setMessage("Response sent successfully.");
+      alert("Response sent successfully.");
+      formRef.current.reset(); // Reset the form fields
+    } catch (error) {
+      console.error("Error sending email:", error);
+      alert(
+        "Failed to send email. Please check your network connection or try again later."
+      );
+    }
+  };
+
   return (
     <PageWrapper>
       <PageHeadingWrapper>
         <TextOne>Contact US</TextOne>
         <TextTwo>Any Question or remarks? Just write us a message</TextTwo>
       </PageHeadingWrapper>
-      <FormContainer>
+      <FormContainer ref={formRef} onSubmit={sendEmail}>
         <DetailsBar />
         <InputSide />
       </FormContainer>
