@@ -1,7 +1,7 @@
-import React from "react";
 import Hero from "../Hero/Hero";
 import Features from "../Features/Features";
 import Footer from "../Footer/Footer";
+import FormPage from "../CONTACTUS/FormPage";
 
 let heroSection = {
   backgroundImage:
@@ -22,7 +22,9 @@ const Home = () => {
       <div>
         <Features />
       </div>
-      <div>{/* call contact component here */}</div>
+      <div>
+        <FormPage/>
+      </div>
       <div>
         <Footer />
       </div>
