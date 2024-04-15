@@ -37,9 +37,14 @@ const Login = () => {
         <p className="text-center">
           Do not Have An Account? <a href="/signup">Sign Up</a>
         </p>
-        <button type="submit" class="btn btn-primary">
-          Log In
-        </button>
+        <div className="text-center">
+          <button className="btn btn-outline-success">
+            Sign In With Google
+          </button>
+          <button type="submit" class="btn btn-primary">
+            Log In
+          </button>
+        </div>
       </form>
     </div>
   );
