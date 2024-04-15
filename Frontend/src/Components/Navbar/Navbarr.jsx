@@ -9,7 +9,7 @@ const Navbarr = () => {
   return (
     <nav className="navbar navbar-expand-lg bg-transparent">
       <div className="container-fluid">
-        <Link className="navbar-brand" to="#" >
+        <Link className="navbar-brand" to="#">
           Farmer
         </Link>
         <button
@@ -32,9 +32,7 @@ const Navbarr = () => {
                 </Link>
               </li>
               <li className="nav-item">
-                <a className="nav-link active" >
-                  About
-                </a>
+                <a className="nav-link active">About</a>
               </li>
             </ul>
           </div>
