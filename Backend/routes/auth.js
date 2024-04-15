@@ -15,9 +15,7 @@ router.post("/signup", async (req, res) => {
   res.send({ msg: "success" });
 });
 
-router.post(
-  "/login",
-  passport.authenticate("local", {
+router.post("/login",passport.authenticate("local", {
     failureRedirect: "/login",
     failureFlash: false,
   }),

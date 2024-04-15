@@ -39,6 +39,7 @@ app.use(passport.session());
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 passport.use(new LocalStrategy(User.authenticate()));
+
 app.use(authRoutes);
 
 const PORT = 8080;

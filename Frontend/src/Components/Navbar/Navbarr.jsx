@@ -1,4 +1,4 @@
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Navbarr = () => {
   const navigate = useNavigate();
@@ -9,9 +9,9 @@ const Navbarr = () => {
   return (
     <nav className="navbar navbar-expand-lg bg-transparent">
       <div className="container-fluid">
-        <a className="navbar-brand" href="#">
+        <Link className="navbar-brand" to="#" >
           Farmer
-        </a>
+        </Link>
         <button
           className="navbar-toggler"
           type="button"
@@ -27,12 +27,12 @@ const Navbarr = () => {
           <div className="mx-auto d-flex justify-content-center">
             <ul className="navbar-nav mb-2 mb-lg-0">
               <li className="nav-item">
-                <a className="nav-link active" aria-current="page" href="/">
+                <Link className="nav-link active" aria-current="page" to="/">
                   Home
-                </a>
+                </Link>
               </li>
               <li className="nav-item">
-                <a className="nav-link active" href="#">
+                <a className="nav-link active" >
                   About
                 </a>
               </li>
