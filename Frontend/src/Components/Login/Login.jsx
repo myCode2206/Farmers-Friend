@@ -2,12 +2,6 @@ import { useState } from "react";
 import styles from "./Login.module.css";
 import axios from 'axios';
 
-const Username = useRef();
-const Email = useRef();
-const Password = useRef();
-const formRef = useRef();
-
-
 const SignUp = () => {
   const Username = useRef();
   const Email = useRef();
@@ -162,9 +156,15 @@ const SignUp = () => {
             </div>
           )}
         </div>
-      </div>
-      </div>
-    </>
+
+        <p className="text-center">
+          Do not Have An Account? <a href="/signup">Sign Up</a>
+        </p>
+        <button type="submit" class="btn btn-primary">
+          Log In
+        </button>
+      </form>
+    </div>
   );
 };
 

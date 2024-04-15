@@ -12,7 +12,7 @@ router.post("/signup", async (req, res) => {
   const user = new User({ username, email });
   const newUser = await User.register(user, password);
   console.log(newUser);
-  res.send({ msg: "success" });
+  res.send({ msg: "registered successfully" });
 });
 
 router.post("/login",passport.authenticate("local", {
@@ -21,7 +21,7 @@ router.post("/login",passport.authenticate("local", {
   }),
   (req, res) => {
     console.log("logged In Successfully");
-    res.send({ msg: "success" });
+    res.send({ msg: "logged in successfully" });
   }
 );
 
