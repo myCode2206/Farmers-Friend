@@ -1,4 +1,5 @@
 const mongoose = require("mongoose");
+const Landdetail =require("./landdetail")
 const passportLocalMongoose = require("passport-local-mongoose");
 const userSchema = new mongoose.Schema({
   username: {
@@ -9,6 +10,10 @@ const userSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  land: [{
+    type: mongoose.Schema.Types.ObjectId, 
+    ref: 'Landdetail' 
+  }]
 });
 
 userSchema.plugin(passportLocalMongoose);
