@@ -41,7 +41,6 @@ io.on('connection',(socket)=>{
 
     socket.on('disconnect',()=>{
         console.log(`user disconnected with ${socket.id} user id`)
-        delete users[socket.id];
     })
 })
   

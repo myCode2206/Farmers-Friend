@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import {
   FaHome,
   FaCog,
@@ -5,10 +6,14 @@ import {
   FaRegEnvelope,
   FaRegFileAlt,
 } from "react-icons/fa";
+
+import {sidbarrendervalue} from  "../../store/atom/sidebarRender"
+
 import { Link } from "react-router-dom";
-import News from "../News/News";
+import { useSetRecoilState } from "recoil";
 
 const Sidebar = ({ sidebarToggle }) => {
+  const setvalue = useSetRecoilState(sidbarrendervalue);
   return (
     <div
       className={`${
@@ -21,34 +26,34 @@ const Sidebar = ({ sidebarToggle }) => {
       <hr />
       <ul className="mt-3 text-white font-bold">
         <li className="mb-2 rounded hover:shadow hover:bg-blue-500 py-2">
-          <a href="" className="px-3">
+          <Link href="" className="px-3" onClick={()=>{setvalue("CropsSutablity")}} > 
             <FaHome className="inline-block w-6 h-6 mr-2 -mt-2"></FaHome>
-            Home
-          </a>
+            CropsSutablity
+          </Link>
         </li>
       </ul>
       <ul className="mt-3 text-white font-bold">
         <li className="mb-2 rounded hover:shadow hover:bg-blue-500 py-2">
-          <a href="" className="px-3">
+          <Link href="" className="px-3" onClick={()=>{setvalue("news")}} >
             <FaRegFileAlt className="inline-block w-6 h-6 mr-2 -mt-2"></FaRegFileAlt>
-            Blogs
-          </a>
-        </li>
-      </ul>
-      <ul className="mt-3 text-white font-bold">
-        <li className="mb-2 rounded hover:shadow hover:bg-blue-500 py-2">
-          <Link to="/news" className="px-3">
-            <FaPoll className="inline-block w-6 h-6 mr-2 -mt-2"></FaPoll>
             News
           </Link>
         </li>
       </ul>
       <ul className="mt-3 text-white font-bold">
         <li className="mb-2 rounded hover:shadow hover:bg-blue-500 py-2">
-          <a href="" className="px-3">
+        <Link href="" className="px-3" onClick={()=>{setvalue("chat")}} >
+            <FaPoll className="inline-block w-6 h-6 mr-2 -mt-2"></FaPoll>
+            community
+        </Link>
+        </li>
+      </ul>
+      <ul className="mt-3 text-white font-bold">
+        <li className="mb-2 rounded hover:shadow hover:bg-blue-500 py-2">
+          <Link href="" className="px-3">
             <FaRegEnvelope className="inline-block w-6 h-6 mr-2 -mt-2"></FaRegEnvelope>
             Inbox
-          </a>
+          </Link>
         </li>
       </ul>
       <ul className="mt-3 text-white font-bold">

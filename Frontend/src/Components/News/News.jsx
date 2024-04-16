@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
-import Mainpanel from "../Sidebar/Mainpanel";
 import Cards from "./Cards";
 
 const News = () => {
@@ -22,7 +21,7 @@ const News = () => {
 
   return (
     <>
-      <Mainpanel />
+      {/* <Mainpanel /> */}
       <div className="container mt-4">
         <div className="row ">
           {newsData.map((article, index) => (

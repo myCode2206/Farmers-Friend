@@ -3,7 +3,7 @@ import Home from "./Components/Home/Home";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Login from "./Components/Login/Login";
 import Chat from "./Components/ChatApp/Chat";
-import News from "./Components/News/News";
+import Mainpanel from "./Components/Sidebar/Mainpanel";
 
 function App() {
   return (
@@ -13,7 +13,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/login" element={<Login />} />
           <Route path="/community" element={<Chat></Chat>}></Route>
-          <Route path="/news" element={<News />}></Route>
+          <Route path="/dashboard" element={<Mainpanel />}></Route>
         </Routes>
       </BrowserRouter>
     </>
