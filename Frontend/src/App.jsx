@@ -16,7 +16,6 @@ function App() {
           <Route path="/community" element={<Chat></Chat>}></Route>
           <Route path="/dashboard" element={<Mainpanel />}></Route>
           <Route path="*" element={<Wrongurl />}></Route>
-
         </Routes>
       </BrowserRouter>
     </>
