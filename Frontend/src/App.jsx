@@ -4,6 +4,7 @@ import Home from "./Components/Home/Home";
 import Navbarr from "./Components/Navbar/Navbarr";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Login from "./Components/Login/Login";
+import Dashbord from "./Components/Dashbord/Dashbord";
 
 
 
@@ -15,7 +16,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home/>} />
           <Route path="/login" element={<Login/>} />
-          {/* <Route path="/signup" element={<SignUp/>} /> */}
+          <Route path="/dashbord" element={<Dashbord/>} />
         </Routes>
         <Footer />
       </BrowserRouter>
