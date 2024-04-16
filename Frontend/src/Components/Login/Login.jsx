@@ -2,6 +2,8 @@ import { useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import styles from "./Login.module.css";
 import axios from "axios";
+import Navbarr from "../Navbar/Navbarr";
+import Footer from "../Footer/Footer";
 
 const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -9,7 +11,7 @@ const Login = () => {
 
   const navigate = useNavigate();
   function Redirect() {
-    navigate("/");
+    navigate("/news");
   }
 
   const togglePasswordVisibility = () => {
@@ -61,6 +63,7 @@ const Login = () => {
   };
   return (
     <>
+      <Navbarr />
       <div className="d-flex justify-content-center align-items-center vh-100 ">
         <div className={styles.container} style={{ marginTop: "20px" }}>
           <div className={styles.forms}>
@@ -181,6 +184,7 @@ const Login = () => {
           </div>
         </div>
       </div>
+      <Footer />
     </>
   );
 };

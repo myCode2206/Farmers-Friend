@@ -1,6 +1,8 @@
 import Hero from "../Hero/Hero";
 import Features from "../Features/Features";
 import FormPage from "../CONTACTUS/FormPage";
+import Navbarr from "../Navbar/Navbarr";
+import Footer from "../Footer/Footer";
 
 let heroSection = {
   backgroundImage:
@@ -15,6 +17,7 @@ let heroSection = {
 const Home = () => {
   return (
     <>
+      <Navbarr />
       <div style={heroSection}>
         <Hero />
       </div>
@@ -24,6 +27,7 @@ const Home = () => {
       <div>
         <FormPage />
       </div>
+      <Footer />
     </>
   );
 };
