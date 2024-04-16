@@ -7,6 +7,7 @@ const passport = require("passport");
 const LocalStrategy = require("passport-local");
 const User = require("./models/User");
 const cors = require("cors");
+const { Server } = require("socket.io");
 
 mongoose
   .connect("mongodb://localhost:27017/farmers-friend")

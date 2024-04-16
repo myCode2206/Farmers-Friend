@@ -5,6 +5,7 @@ import Navbarr from "./Components/Navbar/Navbarr";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Login from "./Components/Login/Login";
 import Dashbord from "./Components/Dashbord/Dashbord";
+import Chat from "./Components/ChatApp/Chat"
 
 
 
@@ -17,6 +18,7 @@ function App() {
           <Route path="/" element={<Home/>} />
           <Route path="/login" element={<Login/>} />
           <Route path="/dashbord" element={<Dashbord/>} />
+          <Route path="/community" element={<Chat></Chat>}></Route>
         </Routes>
         <Footer />
       </BrowserRouter>
