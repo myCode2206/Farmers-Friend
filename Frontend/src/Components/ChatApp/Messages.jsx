@@ -1,5 +1,5 @@
-import React, { useState, useEffect, useMemo } from 'react';
-import { Socket, io } from 'socket.io-client';
+import { useState, useEffect, useMemo } from 'react';
+import { io } from 'socket.io-client';
 import Usertext from './Usertext';
 import Mytext from "./Mytext"
 
@@ -22,6 +22,7 @@ const Messages = () => {
     socket.on('connect', () => {
         // setSocketId(socket.id);
         console.log('connected', socket.id); // Log the socket ID after it's set
+        // console.log("hello");
     });
 
     socket.on('recived-msg', (data) => {
@@ -41,7 +42,6 @@ const Messages = () => {
     const handleSendMessage = () => {
         if (newMessage.trim() !== '') {
             // setMessages([...messages, { user:socket.id , text: newMessage }]);
-            
             socket.emit('send-msg',{ user:socket.id , text: newMessage});
             setNewMessage('');
         }
@@ -73,6 +73,7 @@ const Messages = () => {
                         :
                         <Usertext key={index} text={msg.text} user={msg.user} />  
                 ))}
+
                 {/* <Mytext key={index} text={msg.text} user={msg.user}  ></Mytext> */}
             </div>
             <div className="h-15  p-3 rounded-xl rounded-tr-none rounded-tl-none bg-gray-100 dark:bg-gray-800">
@@ -91,9 +92,14 @@ const Messages = () => {
                             placeholder="Type your message ..."
                         />
                         <button onClick={handleSendMessage} className="bg-gray-100 dark:bg-gray-800 dark:text-gray-200 flex justify-center items-center pr-3 text-gray-400 rounded-r-md">
-                            <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        
+                            {/* <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
+                            </svg> */}
+                            <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 12h14m-6-6l6 6-6 6" />
                             </svg>
+
                         </button>
                     </div>
                 </div>
