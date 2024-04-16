@@ -40,17 +40,13 @@ io.on('connection',(socket)=>{
         console.log(`user disconnected with ${socket.id} user id`)
     })
 
-    socket.on('send-msg',(msg)=>{
+    socket.on('send-msg',(data)=>{
 
-        // console.log(msg);
+        console.log(text);
 
-        io.emit('recived-msg',{user:user[socket.id] , text:msg});
+        io.emit('recived-msg',data);
     })
 
-
-    socket.on('login', (data) => {
-        user[socket.id] = data.username;
-    })
 })
 
 const port = 3000;

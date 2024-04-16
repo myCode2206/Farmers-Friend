@@ -1,11 +1,12 @@
 import React, { useState, useEffect, useMemo } from 'react';
-import { io } from 'socket.io-client';
+import { Socket, io } from 'socket.io-client';
 import Usertext from './Usertext';
 import Mytext from "./Mytext"
 
 const Messages = () => {
     const [messages, setMessages] = useState([]);
     const [newMessage, setNewMessage] = useState('');
+    // const [socketID, setSocketId] = useState("");
 
     // console.log(messages)
 
@@ -18,27 +19,30 @@ const Messages = () => {
     );
 
     useEffect(() => {
-        socket.on('connect', () => {
-            console.log('connected', socket.id);
-        });
+    socket.on('connect', () => {
+        // setSocketId(socket.id);
+        console.log('connected', socket.id); // Log the socket ID after it's set
+    });
 
-        socket.on('recived-msg', (data) => {
-            setMessages((messages) => [...messages, data]);
-        });
+    socket.on('recived-msg', (data) => {
+        setMessages((messages) => [...messages, data]);
+    });
 
-        return () => {
-            socket.disconnect();
-        };
-    }, []);
+    return () => {
+        socket.disconnect();
+    };
+}, []);
 
     const handleNewMessageChange = (e) => {
         setNewMessage(e.target.value);
-        socket.emit('send-msg',{ user: socket.id() ,text: newMessage});
+        
     };
 
     const handleSendMessage = () => {
         if (newMessage.trim() !== '') {
-            setMessages([...messages, { user: socket.id , text: newMessage }]);
+            // setMessages([...messages, { user:socket.id , text: newMessage }]);
+            
+            socket.emit('send-msg',{ user:socket.id , text: newMessage});
             setNewMessage('');
         }
     };
@@ -63,16 +67,13 @@ const Messages = () => {
                 </div>
             </div>
             <div className="w-full flex-grow bg-grey-400 dark:bg-gray-900 my-2 p-2 overflow-y-auto">
-                {messages.map((msg, index) => (
-                    <>
-
-                    
-                    {/* <Mytext key={index} text={msg.text} user={msg.user}  ></Mytext> */}
-                    <Usertext key={index} text={msg.text} user={msg.user} />
-                    </>
-                    
+            {messages.map((msg, index) => (
+                    (msg.user == socket.id)?
+                            <Mytext key={index} text={msg.text} user={msg.user}  ></Mytext>
+                        :
+                        <Usertext key={index} text={msg.text} user={msg.user} />  
                 ))}
-                <Mytext></Mytext>
+                {/* <Mytext key={index} text={msg.text} user={msg.user}  ></Mytext> */}
             </div>
             <div className="h-15  p-3 rounded-xl rounded-tr-none rounded-tl-none bg-gray-100 dark:bg-gray-800">
                 <div className="flex items-center">
