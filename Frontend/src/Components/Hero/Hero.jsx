@@ -16,23 +16,20 @@ const Hero = () => {
           </div>
           <div className="col-lg-6">
             <h1 className="display-5 fw-bold text-body-emphasis lh-1 mb-3">
-              Responsive left-aligned hero with image
+              Cultivating a Resilient and Value-Driven Food System
             </h1>
-            <p className="lead ">
-              Quickly design and customize responsive mobile-first sites with
-              Bootstrap, the world’s most popular front-end open source toolkit,
-              featuring Sass variables and mixins, responsive grid system,
-              extensive prebuilt components, and powerful JavaScript plugins.
+            <p className="lead text-dark">
+              Welcome to Farmers-Friend, where we are dedicated to planting the
+              seeds of transformation in order to enhance the food system. We
+              firmly believe that small actions can lead to significant change
+              thrrough our initiatives
             </p>
             <div className="d-grid gap-2 d-md-flex justify-content-md-start">
-              <button type="button" className="btn btn-primary btn-lg px-4 me-md-2">
-                Primary
-              </button>
               <button
                 type="button"
-                className="btn btn-outline-secondary btn-lg px-4"
+                className="btn btn-primary btn-lg px-4 me-md-2"
               >
-                Default
+                Try Now
               </button>
             </div>
           </div>
