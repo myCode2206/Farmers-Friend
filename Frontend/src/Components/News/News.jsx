@@ -1,11 +1,11 @@
+import React from "react";
 import Mainpanel from "../Sidebar/Mainpanel";
-
-const Dashbord = () => {
+const News = () => {
   return (
     <>
       <Mainpanel />
+      This is my News
     </>
   );
 };
-
-export default Dashbord;
+export default News;

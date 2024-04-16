@@ -32,7 +32,9 @@ const Navbarr = () => {
                 </Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link active" to="/dashbord">Dashbord</Link>
+                <Link className="nav-link active" to="/about">
+                  About
+                </Link>
               </li>
             </ul>
           </div>

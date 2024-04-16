@@ -1,7 +1,8 @@
 /* eslint-disable react/prop-types */
 const Usertext = (props) => {
-    // console.log(props)
+    console.log(props)
     const { text, user } = props;
+
     return (
         <div>
             <div className="flex items-end w-3/4">

@@ -1,4 +1,4 @@
-import { useState, useEffect, useMemo } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { io } from 'socket.io-client';
 import Usertext from './Usertext';
 import Mytext from "./Mytext"
@@ -6,33 +6,22 @@ import Mytext from "./Mytext"
 const Messages = () => {
     const [messages, setMessages] = useState([]);
     const [newMessage, setNewMessage] = useState('');
-    // const [socketID, setSocketId] = useState("");
-
-    // console.log(messages)
-
-    const socket = useMemo(
-        () =>
-            io('http://localhost:3000', {
-                withCredentials: true,
-            }),
-        []
-    );
+    const socketRef = useRef();
+    
 
     useEffect(() => {
-    socket.on('connect', () => {
-        // setSocketId(socket.id);
-        console.log('connected', socket.id); // Log the socket ID after it's set
-        // console.log("hello");
-    });
+        socketRef.current = io('http://localhost:3000'); // Replace with your server URL
+    
+        socketRef.current.on('recived-msg', (data) => {
+          setMessages((prevMessages) => [...prevMessages, data]);
+        });
+    
+        return () => {
+          socketRef.current.disconnect();
+        };
+      }, []);
 
-    socket.on('recived-msg', (data) => {
-        setMessages((messages) => [...messages, data]);
-    });
-
-    return () => {
-        socket.disconnect();
-    };
-}, []);
+    
 
     const handleNewMessageChange = (e) => {
         setNewMessage(e.target.value);
@@ -41,8 +30,11 @@ const Messages = () => {
 
     const handleSendMessage = () => {
         if (newMessage.trim() !== '') {
-            // setMessages([...messages, { user:socket.id , text: newMessage }]);
-            socket.emit('send-msg',{ user:socket.id , text: newMessage});
+            const messageData = {
+                text: newMessage,
+                user: socketRef.current?.id
+            };
+            socketRef.current.emit('send-msg', messageData);
             setNewMessage('');
         }
     };
@@ -67,14 +59,15 @@ const Messages = () => {
                 </div>
             </div>
             <div className="w-full flex-grow bg-grey-400 dark:bg-gray-900 my-2 p-2 overflow-y-auto">
-            {messages.map((msg, index) => (
-                    (msg.user == socket.id)?
-                            <Mytext key={index} text={msg.text} user={msg.user}  ></Mytext>
-                        :
-                        <Usertext key={index} text={msg.text} user={msg.user} />  
+                {messages.map((msg, index) => (
+                    <React.Fragment key={index}>
+                        {msg.user === socketRef.current?.id ? (
+                            <Mytext text={msg.text} user={msg.user} />
+                        ) : (
+                            <Usertext text={msg.text} user={msg.user} />
+                        )}
+                    </React.Fragment>
                 ))}
-
-                {/* <Mytext key={index} text={msg.text} user={msg.user}  ></Mytext> */}
             </div>
             <div className="h-15  p-3 rounded-xl rounded-tr-none rounded-tl-none bg-gray-100 dark:bg-gray-800">
                 <div className="flex items-center">
