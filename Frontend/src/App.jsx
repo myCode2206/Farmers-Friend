@@ -1,26 +1,20 @@
 import "./App.css";
-import Footer from "./Components/Footer/Footer";
 import Home from "./Components/Home/Home";
-import Navbarr from "./Components/Navbar/Navbarr";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Login from "./Components/Login/Login";
-import Dashbord from "./Components/Dashbord/Dashbord";
-import Chat from "./Components/ChatApp/Chat"
-
-
+import Chat from "./Components/ChatApp/Chat";
+import News from "./Components/News/News";
 
 function App() {
   return (
     <>
       <BrowserRouter>
-        <Navbarr />
         <Routes>
-          <Route path="/" element={<Home/>} />
-          <Route path="/login" element={<Login/>} />
-          <Route path="/dashbord" element={<Dashbord/>} />
+          <Route path="/" element={<Home />} />
+          <Route path="/login" element={<Login />} />
           <Route path="/community" element={<Chat></Chat>}></Route>
+          <Route path="/news" element={<News />}></Route>
         </Routes>
-        <Footer />
       </BrowserRouter>
     </>
   );
