@@ -42,7 +42,7 @@ io.on('connection',(socket)=>{
 
     socket.on('send-msg',(data)=>{
 
-        console.log(text);
+        // console.log(data);
 
         io.emit('recived-msg',data);
     })
