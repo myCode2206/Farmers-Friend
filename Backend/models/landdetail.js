@@ -1,26 +1,27 @@
 const mongoose = require("mongoose");
 
 const landSchema= new mongoose.Schema({
+    name:{
+        require:true,
+        type:String
+    },
     area:{
         required:true,
-        type:Number
+        type:String
     },
-    Soiltype:{
+    soilType:{
         required:true,
         type:String
     },
-    temp:{
+    latitude:{
         required:true,
         type:String
     },
-    lat:{
+    longitude:{
         required:true,
         type:String
     },
-    long:{
-        required:true,
-        type:String
-    },
+    weather: { type: Object } // Store weather data as an object
 
 })
 

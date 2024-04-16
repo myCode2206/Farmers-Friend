@@ -12,6 +12,7 @@ const Info = () => {
 
   const setValue = useSetRecoilState(sidbarrendervalue);
   function fun() {
+    alert("your land data is saved");
     setValue("CropsSutablity");
   }
   const getLocation = () => {
@@ -19,6 +20,7 @@ const Info = () => {
       (position) => {
         setLatitude(position.coords.latitude);
         setLongitude(position.coords.longitude);
+        alert("location is added")
       },
       (error) => {
         alert("Failed to fetch location: " + error.message);

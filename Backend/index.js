@@ -2,6 +2,7 @@ const express = require("express");
 const app = express();
 const mongoose = require("mongoose");
 const authRoutes = require("./routes/auth");
+const landRoutes=require("./routes/landdetails")
 const session = require("express-session");
 const passport = require("passport");
 const LocalStrategy = require("passport-local");
@@ -21,6 +22,7 @@ mongoose
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+
 app.use(cors());
 
 //session middleware
@@ -43,6 +45,7 @@ passport.deserializeUser(User.deserializeUser());
 passport.use(new LocalStrategy(User.authenticate()));
 
 app.use(authRoutes);
+app.use(landRoutes);
 
 const PORT = 8080;
 app.listen(PORT, () => {

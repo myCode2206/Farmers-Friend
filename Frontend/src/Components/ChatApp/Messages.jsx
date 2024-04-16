@@ -59,6 +59,7 @@ const Messages = () => {
                 </div>
             </div>
             <div className="w-full flex-grow bg-grey-400 dark:bg-gray-900 my-2 p-2 overflow-y-auto">
+            
                 {messages.map((msg, index) => (
                     <React.Fragment key={index}>
                         {msg.user === socketRef.current?.id ? (
