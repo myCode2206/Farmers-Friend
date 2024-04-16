@@ -1,65 +1,54 @@
-import "./sidebar.module.css"
-
-import Weathercard from "../Weather/Weathercard"
-
-
-
-function Sidebar() {
+import {FaHome, FaCog, FaPoll, FaRegEnvelope, FaRegFileAlt} from "react-icons/fa";
+const Sidebar = ({sidebarToggle}) => {
   return (
-    <div className="container-fluid">
-      <div className="row flex-nowrap">
-        <div className="bg-dark col-auto col-md-4 col-lg-3 min-vh-100 d-flex flex-column justify-content-between">
-          <div className="bg-dark p-2">
-            <a className="d-flex text-decoration-none mt-1 align-items-center text-white">
-              <i className="fs-5 "></i>
-              <span className="fs-4 ms-3 d-none d-sm-inline">ECOGREEN</span>
-            </a>
-            <ul className="nav nav-pills np flex-column mt-4">
-              <li className="nav-item py-2 py-sm-0">
-                <a href="#" className="nav-link text-white" aria-current="page">
-                  <i className="fs-5 fa fa-gauge"></i>
-                  <span className="fs-4 ms-3 d-none d-sm-inline">DashBoard</span>
-                </a>
-              </li>
-              <li className="nav-item py-2 py-sm-0">
-                <a href="#" className="nav-link text-white" aria-current="page">
-                  <i className="fs-5 fa fa-house"></i>
-                  <span className="fs-4 ms-3 d-none d-sm-inline">Home</span>
-                </a>
-              </li>
-              <li className="nav-item py-2 py-sm-0">
-                <a href="#" className="nav-link text-white" aria-current="page">
-                  <i className="fs-5 fa fa-table-list"></i>
-                  <span className="fs-4 ms-3 d-none d-sm-inline">Articles</span>
-                </a>
-              </li>
-              <li className="nav-item py-2 py-sm-0">
-                <a href="#" className="nav-link text-white" aria-current="page">
-                  <i className="fs-5 fa fa-table-list"></i>
-                  <span className="fs-4 ms-3 d-none d-sm-inline">Products</span>
-                </a>
-              </li>
-              <li className="nav-item py-2 py-sm-0 mask">
-                <a href="#" className="nav-link text-white" aria-current="page">
-                  <i className="fs-5 fa fa-clipboard"></i>
-                  <span className="fs-4 ms-3 d-none d-sm-inline">Orders</span>
-                </a>
-              </li>
-              <li className="nav-item py-2 py-sm-0">
-                <a href="#" className="nav-link text-white" aria-current="page">
-                  <i className="fs-5 fa fa-table-list"></i>
-                  <span className="fs-4 ms-3 d-none d-sm-inline">Customers</span>
-                </a>
-              </li>
-            </ul>
-          </div>
+    <div className={`${sidebarToggle? " hidden " : " block "}w-64 bg-gray-800 fixed h-full px-4 px-2`}>
+        <div className="my-2 mb-4">
+            <h1 className="text-2x text-white font-bold">Admin Dashboard</h1>
         </div>
-        <div className="p-3 p3">
-          <Weathercard/>
-        </div>
-      </div>
+        <hr/>
+        <ul className="mt-3 text-white font-bold">
+            <li className="mb-2 rounded hover:shadow hover:bg-blue-500 py-2">
+                <a href="" className="px-3">
+                    <FaHome className="inline-block w-6 h-6 mr-2 -mt-2"></FaHome>
+                    Home
+                </a>
+            </li>
+        </ul>
+        <ul className="mt-3 text-white font-bold">
+            <li className="mb-2 rounded hover:shadow hover:bg-blue-500 py-2">
+                <a href="" className="px-3">
+                    <FaRegFileAlt className="inline-block w-6 h-6 mr-2 -mt-2"></FaRegFileAlt>
+                    Blogs
+                </a>
+            </li>
+        </ul>
+        <ul className="mt-3 text-white font-bold">
+            <li className="mb-2 rounded hover:shadow hover:bg-blue-500 py-2">
+                <a href="" className="px-3">
+                    <FaPoll className="inline-block w-6 h-6 mr-2 -mt-2"></FaPoll>
+                    Reports
+                </a>
+            </li>
+        </ul>
+        <ul className="mt-3 text-white font-bold">
+            <li className="mb-2 rounded hover:shadow hover:bg-blue-500 py-2">
+                <a href="" className="px-3">
+                    <FaRegEnvelope
+                     className="inline-block w-6 h-6 mr-2 -mt-2"></FaRegEnvelope>
+                    Inbox
+                </a>
+            </li>
+        </ul>
+        <ul className="mt-3 text-white font-bold">
+            <li className="mb-2 rounded hover:shadow hover:bg-blue-500 py-2">
+                <a href="" className="px-3">
+                    <FaCog className="inline-block w-6 h-6 mr-2 -mt-2"></FaCog>
+                    Setting
+                </a>
+            </li>
+        </ul>
     </div>
-  );
+  )
 }
 
-export default Sidebar;
+export default Sidebar

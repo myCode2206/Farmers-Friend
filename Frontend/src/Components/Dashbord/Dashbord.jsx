@@ -1,10 +1,9 @@
-import Sidebar from "../Sidebar/Sidebar"
+import Mainpanel from "../Sidebar/Mainpanel";
 
 const Dashbord = () => {
   return (
     <>
-        <Sidebar>
-    </Sidebar>
+        <Mainpanel/>
     </>
   )
 }
