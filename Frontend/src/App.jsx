@@ -4,6 +4,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Login from "./Components/Login/Login";
 import Chat from "./Components/ChatApp/Chat";
 import Mainpanel from "./Components/Sidebar/Mainpanel";
+import Wrongurl from "./Components/Wrongurl/Wrongurl";
 
 function App() {
   return (
@@ -14,6 +15,8 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/community" element={<Chat></Chat>}></Route>
           <Route path="/dashboard" element={<Mainpanel />}></Route>
+          <Route path="*" element={<Wrongurl />}></Route>
+
         </Routes>
       </BrowserRouter>
     </>

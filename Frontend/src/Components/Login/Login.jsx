@@ -11,7 +11,7 @@ const Login = () => {
 
   const navigate = useNavigate();
   function Redirect() {
-    navigate("/news");
+    navigate("/dashboard");
   }
 
   const togglePasswordVisibility = () => {

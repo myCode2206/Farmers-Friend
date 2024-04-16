@@ -10,7 +10,8 @@ const cors = require("cors");
 const { Server } = require("socket.io");
 
 mongoose
-  .connect("mongodb://localhost:27017/farmers-friend")
+  // .connect("mongodb://localhost:27017/farmers-friend")
+  .connect("mongodb://127.0.0.1:27017/farmers-friend")
   .then(() => {
     console.log("DB CONNECTED");
   })
