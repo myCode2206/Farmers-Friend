@@ -1,7 +1,7 @@
 
-# Farmer-Friend
+# Farmers-Friend
 
-Welcome to **Farmer-Friend**! This project is designed to help farmers optimize their agricultural practices by providing insights into crop suitability based on land details and climate conditions. It also includes a community forum and chat for farmers to share knowledge and experiences, weather functionality using the OpenWeather API, and an agricultural news section.
+Welcome to **Farmers-Friend**! This project is designed to help farmers optimize their agricultural practices by providing insights into crop suitability based on land details and climate conditions. It also includes a community forum and chat for farmers to share knowledge and experiences, weather functionality using the OpenWeather API, and an agricultural news section.
 
 
 ## Features
