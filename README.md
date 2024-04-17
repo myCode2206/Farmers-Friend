@@ -19,7 +19,7 @@ The project is built using the MERN stack:
 -   **Express**: Web framework to handle server-side logic and routing.
 -   **React**: Frontend framework to build a modern, interactive user interface.
 -   **Node.js**: Runtime environment to execute server-side code.
-- -   **Socket.IO**: Real-time bidirectional event-based communication for community chat functionality.
+-   **Socket.IO**: Real-time bidirectional event-based communication for community chat functionality.
 
 ## Setup and Installation
 
